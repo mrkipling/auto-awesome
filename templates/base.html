@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Brad's Home Server</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/static/css/lib/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/css/site/site.css">
+        <script src="/static/js/lib/jquery.min.js"></script>
+        <script src="/static/js/lib/bootstrap.min.js"></script>
+        {% block extra_head %}{% endblock %}
+    </head>
+    <body{% if meta_page is defined %} class="p-{{ meta_page }}"{% endif %}>
+
+        {% block content %}{% endblock %}
+
+    </body>
+</html>
