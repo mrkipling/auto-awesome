@@ -11,7 +11,7 @@ This is a collection of endpoints that will be useful if you own the following p
 
 You need to have a home server that can serve these endpoints. I use nginx and have included `server_uwsgi.ini` to help with this if you wish to go down this route.
 
-This project uses Flask, amongst other libraries. You can find all requirements in `requirements.txt` which will you can install using `pip`.
+This project uses Flask, amongst other libraries. You can find all requirements in `requirements.txt` which you can install using `pip`.
 
 There are plenty of good tutorials online about the above so I will skip straight to how to set up this project once you have it being served by a webserver.
 
