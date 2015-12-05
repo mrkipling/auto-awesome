@@ -11,13 +11,13 @@ This is a collection of endpoints that will be useful if you own the following p
 
 You need to have a home server that can serve these endpoints. I use nginx and have included `server_uwsgi.ini` to help with this if you wish to go down this route.
 
-This project uses Flask. You can find all requirements in `requirment.txt` which will you can install using pip.
+This project uses Flask, amongst other libraries. You can find all requirements in `requirements.txt` which will you can install using `pip`.
 
-There are plenty of good tutorials online about the above so I will skip straight to how to set up this project once you have it bieng served by a webserver.
+There are plenty of good tutorials online about the above so I will skip straight to how to set up this project once you have it being served by a webserver.
 
 ## bttn
 
-The bttn is a wifi-connected button. You can make it send a GET request when you press it. This is why having these endpoints is so awesome; you can set up something on your phone, or you can have a big red button attached to your wall that does the same things. When coupled with a "DO NO PRESS" plaque underneath you can see why it is the better option (especially for the "Sexy Time" endpoint".
+The bttn is a wifi-connected button. You can make it send a GET request when you press it. This is why having these endpoints is so awesome; you can set up a bookmark widget on your phone, or you can have a big red button attached to your wall that does the same thing. When coupled with a "DO NO PRESS" plaque (£2.99 on eBay) underneath the bttn you can see why it is the better option (especially for the "Sexy Time" endpoint).
 
 You can find more details here:
 https://bt.tn/
@@ -36,27 +36,29 @@ Okay, now onto the endpoints.
 
 ## Sexy Time
 
-When activated the Sexy Time endpoint plays a paylist on your Sonos system (the name is defined in `SEXY_TIME_PLAYLIST_NAME`, default "Sexy Time"). It work best with the bttn because it's just cooler. When activated it plays the playlist on your Sonos system and dims the lights to `SEXY_TIME_DIMMER_BRIGHTNESS` (default: 125, about 20%) over `SEXY_TIME_DIMMER_SECONDS` (default: 10 seonds).
+When activated the Sexy Time endpoint plays a playlist on your Sonos system (the name is defined in `SEXY_TIME_PLAYLIST_NAME`, default "Sexy Time"). It work best with the bttn because it's just cooler. When activated it plays the playlist on your Sonos system and dims the lights to `SEXY_TIME_DIMMER_BRIGHTNESS` (default: 125, about 20%) over `SEXY_TIME_DIMMER_SECONDS` (default: 10 seonds).
 
-It also skips tracks when activated again. However we need to know the name of the first track in the playlist in order to do this. This is `SEXY_TIME_FIRST_TRACK`.
+It also skips tracks when activated again. However we need to know the name of the first track in the playlist in order to do this as we just add the playlist to the queue and I don't think that you can get the playlist name from this. This is `SEXY_TIME_FIRST_TRACK`.
 
 ## Party Time
 
 This just affects your Sonos, not your lights. It plays `PARTY_TIME_PLAYLIST_NAME` in shuffle mode (and skips the first track, otherwise we always end up with the same first track). When the endpoint is activated again it skips to the next track.
 
-As you can imagine, a big red party button on your wall is better than having your friends visit a URL.
+As you can imagine, a big red party button on your wall is better than visiting a URL.
 
 ## Arriving Home
 
 This requires Tasker on Android. You need to set it up so that:
 
 * When you connect to your WiFi network
-* Between the hours of 16:00 and 22:00 suggested
-* On a weekday (again) just a suggestion
+* Between the hours of 16:00 and 22:00 (suggested)
+* On a weekday (again, just a suggestion; whatever, works for you)
 
-It sends a GET request to to this endpoint (with HHTP auth, I find it easier to include in the URL, like `http://username:password@server/endpoint`).
+It sends a GET request to to this endpoint (with HHTP auth; I find it easier to include in the URL, like `http://username:password@server/automation/arriving-home/`).
 
 It turns the lights on to 80% and plays `ARRIVING_HOME_PLAYLIST_NAME` at a sensible (quiet) volume to provide a nice "arriving home" experience. I suggest filling `ARRIVING_HOME_PLAYLIST_NAME` with chilled music. Again, it plays in shuffle mode and skips the first track; it's nice to have a different track every day when you arrive home. Then it just keeps playing until you turn it off.
+
+Imagine... when you arrive home the lights are on at a nice level and soft music is playing. I have this set up already and can confirm that it is almost magical :)
 
 ## Stop
 
@@ -68,10 +70,12 @@ I've also created a "stop" endpoint that brings everything to an end. It does th
 * Stops all playback
 * Sets the lights to 80% over 3 seconds (nobody likes a jarring transition)
 
+I've set this up as an icon (Chrome bookmark widget) on my phone.
+
 ## Notes
 
 * The endpoints all return JSON, `{'status': 'success'}`.
-* You need to initiate a venv (Google it).
-* When in your venv you need to run `pip install -r requirements.txt` in order to install all of the libraries that this project uses.
+* In order to makes this work you need to initiate a venv (Google it).
+* When in your activated venv you need to run `pip install -r requirements.txt` in order to install all of the libraries that this project uses.
 * If you want to test this out without setting up a proper web server you can just run `python server.py`. It runs on port 9000 by default.
 * If you have any questions then feel free to ask.
