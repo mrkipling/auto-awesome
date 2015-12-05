@@ -75,7 +75,7 @@ I've set this up as an icon (Chrome bookmark widget) on my phone.
 ## Notes
 
 * The endpoints all return JSON, `{'status': 'success'}`.
-* In order to makes this work you need to initiate a venv (Google it).
+* In order to make this work you need to initiate a venv (Google it).
 * When in your activated venv you need to run `pip install -r requirements.txt` in order to install all of the libraries that this project uses.
 * If you want to test this out without setting up a proper web server you can just run `python server.py`. It runs on port 9000 by default.
 * If you have any questions then feel free to ask.
