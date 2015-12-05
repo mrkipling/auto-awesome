@@ -17,7 +17,7 @@ There are plenty of good tutorials online about the above so I will skip straigh
 
 ## bttn
 
-The bttn is a wifi-connected button. You can make it send a GET request when you press it. This is why having these endpoints is so awesome; you can set up a bookmark widget on your phone, or you can have a big red button attached to your wall that does the same thing. When coupled with a "DO NO PRESS" plaque (£2.99 on eBay) underneath the bttn you can see why it is the better option (especially for the "Sexy Time" endpoint).
+The bttn is a wifi-connected button. You can make it send a GET request when you press it. This is why having these endpoints is so awesome; you can set up a bookmark widget on your phone, or you can have a big red button attached to your wall that does the same thing. When coupled with a "DO NOT PRESS" plaque (£2.99 on eBay) underneath the bttn you can see why it is the better option (especially for the "Sexy Time" endpoint).
 
 <a href="https://bt.tn/"><img src="http://i.imgur.com/0YkSxFC.jpg" width="397" height="363" style="display: block; margin: 20px 0;"></a>
 
