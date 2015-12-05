@@ -26,7 +26,7 @@ https://bt.tn/
 
 I am going to assume that you have a Sonos speaker and a Philips Hue lightbulb system (Lux or not, I don't think it makes a difference).
 
-We are using basic HHTP authentication for the endpoints so that people can't just randomly fuck with your lights and music. Open up `server.py` and fill in a username and password in the `users` dict.
+We are using basic HTTP authentication for the endpoints so that people can't just randomly fuck with your lights and music. Open up `server.py` and fill in a username and password in the `users` dict.
 
 * `SONOS_IP` is the IP address of your Sonos speaker
 * `HUE_IP` is the IP address of your Hue bridge.
@@ -44,7 +44,7 @@ It also skips tracks when activated again. However we need to know the name of t
 
 This just affects your Sonos, not your lights. It plays `PARTY_TIME_PLAYLIST_NAME` in shuffle mode (and skips the first track, otherwise we always end up with the same first track). When the endpoint is activated again it skips to the next track.
 
-As you can imagine, a big red party button on your wall is better than visiting a URL.
+AHHTs you can imagine, a big red party button on your wall is better than visiting a URL.
 
 ## Arriving Home
 
@@ -54,7 +54,7 @@ This requires Tasker on Android. You need to set it up so that:
 * Between the hours of 16:00 and 22:00 (suggested)
 * On a weekday (again, just a suggestion; whatever, works for you)
 
-It sends a GET request to to this endpoint (with HHTP auth; I find it easier to include in the URL, like `http://username:password@server/automation/arriving-home/`).
+It sends a GET request to to this endpoint (with HTTP auth; I find it easier to include in the URL, like `http://username:password@server/automation/arriving-home/`).
 
 It turns the lights on to 80% and plays `ARRIVING_HOME_PLAYLIST_NAME` at a sensible (quiet) volume to provide a nice "arriving home" experience. I suggest filling `ARRIVING_HOME_PLAYLIST_NAME` with chilled music. Again, it plays in shuffle mode and skips the first track; it's nice to have a different track every day when you arrive home. Then it just keeps playing until you turn it off.
 
