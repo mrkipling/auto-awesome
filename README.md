@@ -36,7 +36,7 @@ Okay, now onto the endpoints.
 
 ## Sexy Time
 
-When activated the Sexy Time endpoint plays a playlist on your Sonos system (the name is defined in `SEXY_TIME_PLAYLIST_NAME`, default "Sexy Time"). It work best with the bttn because it's just cooler. When activated it plays the playlist on your Sonos system and dims the lights to `SEXY_TIME_DIMMER_BRIGHTNESS` (default: 125, about 20%) over `SEXY_TIME_DIMMER_SECONDS` (default: 10 seonds).
+When activated the Sexy Time endpoint plays a playlist on your Sonos system (the name is defined in `SEXY_TIME_PLAYLIST_NAME`, default "Sexy Time"). It works best with the bttn because it's just cooler. When activated it plays the playlist on your Sonos system and dims the lights to `SEXY_TIME_DIMMER_BRIGHTNESS` (default: 125, about 20%) over `SEXY_TIME_DIMMER_SECONDS` (default: 10 seonds).
 
 It also skips tracks when activated again. However we need to know the name of the first track in the playlist in order to do this as we just add the playlist to the queue and I don't think that you can get the playlist name from this. This is `SEXY_TIME_FIRST_TRACK`.
 
