@@ -28,7 +28,9 @@ https://bt.tn/
 
 I am going to assume that you have a Sonos speaker and a Philips Hue lightbulb system (Lux or not, I don't think it makes a difference).
 
-We are using basic HTTP authentication for the endpoints so that people can't just randomly fuck with your lights and music. Open up `server.py` and fill in a username and password in the `users` dict.
+Copy `vars.example.py` to `vars.py` (which is in gitignore, so you can can edit `vars.py` and `git pull` without any conflicts).
+
+We are using basic HTTP authentication for the endpoints so that people can't just randomly fuck with your lights and music. Open up your newly-copied `vars.py` and fill in a username and password in the `users` dict.
 
 * `SONOS_IP` is the IP address of your Sonos speaker
 * `HUE_IP` is the IP address of your Hue bridge.
