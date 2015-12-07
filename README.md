@@ -48,7 +48,7 @@ It also skips tracks when activated again. However we need to know the name of t
 
 ## Party Time
 
-This just affects your Sonos, not your lights. It plays `PARTY_TIME_PLAYLIST_NAME` (default: `Part Time`, in shuffle mode, and skips it the first track otherwise we always end up with the same first track). When the endpoint is activated again it skips to the next track.
+This just affects your Sonos, not your lights. It plays `PARTY_TIME_PLAYLIST_NAME` (default: `Party Time`, in shuffle mode, and skips it the first track otherwise we always end up with the same first track). When the endpoint is activated again it skips to the next track.
 
 As you can imagine, a big red party button on your wall is better than visiting a URL.
 
