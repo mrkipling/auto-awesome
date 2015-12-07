@@ -5,7 +5,7 @@ This is a collection of endpoints that will be useful if you own the following p
 * A Sonos speaker
 * Philips Hue lightbulbs
 * A bttn (optional, but so much more awesome with one; see the bttn section below)
-* An Android phone with tasker (optional, only required for the 'arriving home' endpoint)
+* An Android phone with tasker (optional; only required for the "arriving home" endpoint)
 
 ## Instructions
 
@@ -30,7 +30,9 @@ I am going to assume that you have a Sonos speaker and a Philips Hue lightbulb s
 
 Copy `vars.example.py` to `vars.py` (which is in gitignore, so you can can edit `vars.py` and `git pull` without any conflicts).
 
-We are using basic HTTP authentication for the endpoints so that people can't just randomly fuck with your lights and music. Open up your newly-copied `vars.py` and fill in a username and password in the `users` dict.
+We are using basic HTTP authentication for the endpoints so that people can't just randomly fuck with your lights and music. It's obviously not perfect but does a good-enough job for this purpose (IMO).
+
+Open up your newly-copied `vars.py` and fill in a username and password in the `users` dict.
 
 * `SONOS_IP` is the IP address of your Sonos speaker
 * `HUE_IP` is the IP address of your Hue bridge.
@@ -40,13 +42,13 @@ Okay, now onto the endpoints.
 
 ## Sexy Time
 
-When activated the Sexy Time endpoint plays a playlist on your Sonos system (the name is defined in `SEXY_TIME_PLAYLIST_NAME`, default "Sexy Time"). It works best with the bttn because it's just cooler. When activated it plays the playlist on your Sonos system and dims the lights to `SEXY_TIME_DIMMER_BRIGHTNESS` (default: 125, about 20%) over `SEXY_TIME_DIMMER_SECONDS` (default: 10 seonds).
+When activated the Sexy Time endpoint plays a playlist on your Sonos system (the name is defined in `SEXY_TIME_PLAYLIST_NAME`, default: `Sexy Time`). It works best with the bttn because it's just cooler. When activated it plays the playlist on your Sonos system and dims the lights to `SEXY_TIME_DIMMER_BRIGHTNESS` (default: `125`, about 20%) over `SEXY_TIME_DIMMER_SECONDS` (default: `10` seonds).
 
-It also skips tracks when activated again. However we need to know the name of the first track in the playlist in order to do this as we just add the playlist to the queue and I don't think that you can get the playlist name from this. This is `SEXY_TIME_FIRST_TRACK`.
+It also skips tracks when activated again. However we need to know the name of the first track in the playlist in order to do this as we just add the playlist to the queue and I don't think that you can get the playlist name from this. This is `SEXY_TIME_FIRST_TRACK` (deafault: `01 - Lets Get It On.mp3, obviously).
 
 ## Party Time
 
-This just affects your Sonos, not your lights. It plays `PARTY_TIME_PLAYLIST_NAME` in shuffle mode (and skips the first track, otherwise we always end up with the same first track). When the endpoint is activated again it skips to the next track.
+This just affects your Sonos, not your lights. It plays `PARTY_TIME_PLAYLIST_NAME` (default: `Part Time`, in shuffle mode, and skips it the first track otherwise we always end up with the same first track). When the endpoint is activated again it skips to the next track.
 
 As you can imagine, a big red party button on your wall is better than visiting a URL.
 
@@ -56,11 +58,11 @@ This requires Tasker on Android. You need to set it up so that:
 
 * When you connect to your WiFi network
 * Between the hours of 16:00 and 22:00 (suggested)
-* On a weekday (again, just a suggestion; whatever, works for you)
+* On a weekday (again, just a suggestion; whatever works for you)
 
 It sends a GET request to to this endpoint (with HTTP auth; I find it easier to include in the URL, like `http://username:password@server/automation/arriving-home/`).
 
-It turns the lights on to 80% and plays `ARRIVING_HOME_PLAYLIST_NAME` at a sensible (quiet) volume to provide a nice "arriving home" experience. I suggest filling `ARRIVING_HOME_PLAYLIST_NAME` with chilled music. Again, it plays in shuffle mode and skips the first track; it's nice to have a different track every day when you arrive home. Then it just keeps playing until you turn it off.
+It turns the lights on to 80% and plays `ARRIVING_HOME_PLAYLIST_NAME` (default: `Arriving Home`) at a sensible (quiet) volume to provide a nice "arriving home" experience. I suggest filling the contents of `ARRIVING_HOME_PLAYLIST_NAME` with chilled music. Again, it plays in shuffle mode and skips the first track; it's nice to have a different track every day when you arrive home. Then it just keeps playing until you turn it off.
 
 Imagine... when you arrive home the lights are on at a nice level and soft music is playing. I have this set up already and can confirm that it is almost magical :)
 
