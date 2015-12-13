@@ -34,6 +34,8 @@ We are using basic HTTP authentication for the endpoints so that people can't ju
 
 Open up your newly-copied `vars.py` and fill in a username and password in the `users` dict.
 
+Now fill in YOUR_NAME with your actual name (optional). If specified then the server homepage will display (e.g.) "This is Brad's home server. Welcome!" If left as an empty string then it will just say "This is a home server. Welcome!"
+
 * `SONOS_IP` is the IP address of your Sonos speaker
 * `HUE_IP` is the IP address of your Hue bridge.
 * `HUE_USERNAME` is your Hue username. This URL explains how to generate one: http://www.developers.meethue.com/documentation/getting-started

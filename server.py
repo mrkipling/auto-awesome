@@ -20,7 +20,7 @@ def get_pw(username):
 
 @app.route("/")
 def index():
-    return render_template('index.html')
+    return render_template('index.html', your_name=YOUR_NAME)
 
 
 def get_sonos_playlist(sonos, title):

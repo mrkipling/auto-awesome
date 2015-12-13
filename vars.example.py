@@ -2,6 +2,8 @@ users = {
     "admin": "password"
 }
 
+YOUR_NAME = ''
+
 SONOS_IP = ''
 HUE_IP = ''
 HUE_USERNAME = ''

@@ -4,6 +4,6 @@
 
 {% block content %}
 
-<h1 class="m-a-0">This is a home server. Welcome!</h1>
+<h1 class="m-a-0">This is {{ your_name ~ "'s " if your_name != '' else 'a' }} home server. Welcome!</h1>
 
 {% endblock %}
