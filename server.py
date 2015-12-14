@@ -135,12 +135,12 @@ def arriving_home():
     hue = Bridge(ip=HUE_IP,
                  username=HUE_USERNAME)
 
-    # set the lights to approximately 80% over 3 seconds
+    # set the lights to appropriate brightness over appropriate time
 
     command = {
-        'transitiontime': 30,
+        'transitiontime': (ARRIVING_HOME_DIMMER_SECONDS * 10),
         'on': True,
-        'bri': 203
+        'bri': ARRIVING_HOME_DIMMER_BRIGHTNESS
     }
 
     hue.set_light(1, command)
@@ -152,7 +152,7 @@ def arriving_home():
     sonos.clear_queue()
 
     # set volume
-    sonos.volume = 25
+    sonos.volume = ARRIVING_HOME_VOLUME
 
     # play Arriving Home playlist
 

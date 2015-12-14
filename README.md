@@ -64,7 +64,7 @@ This requires Tasker on Android. You need to set it up so that:
 
 It sends a GET request to to this endpoint (with HTTP auth; I find it easier to include in the URL, like `http://username:password@server/automation/arriving-home/`).
 
-It turns the lights on to 80% and plays `ARRIVING_HOME_PLAYLIST_NAME` (default: `Arriving Home`) at a sensible (quiet) volume to provide a nice "arriving home" experience. I suggest filling the contents of `ARRIVING_HOME_PLAYLIST_NAME` with chilled music. Again, it plays in shuffle mode and skips the first track; it's nice to have a different track every day when you arrive home. Then it just keeps playing until you turn it off.
+It turns the lights on to `ARRIVING_HOME_DIMMER_BRIGHTNESS` over `ARRIVING_HOME_DIMMER_SECONDS` and plays `ARRIVING_HOME_PLAYLIST_NAME` (default: `Arriving Home`) at `ARRIVING_HOME_VOLUME` volume to provide a nice "arriving home" experience. I suggest filling the contents of `ARRIVING_HOME_PLAYLIST_NAME` with chilled music. Again, it plays in shuffle mode and skips the first track; it's nice to have a different track every day when you arrive home. Then it just keeps playing until you turn it off.
 
 Imagine... when you arrive home the lights are on at a nice level and soft music is playing. I have this set up already and can confirm that it is almost magical :)
 
