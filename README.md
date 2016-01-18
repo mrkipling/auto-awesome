@@ -28,7 +28,7 @@ https://bt.tn/
 
 I am going to assume that you have a Sonos speaker and a Philips Hue lightbulb system (Lux or not, I don't think it makes a difference).
 
-Copy `vars.example.py` to `vars.py` (which is in gitignore, so you can can edit `vars.py` and `git pull` without any conflicts).
+Copy `vars.example.py` to `vars.py` (which is in gitignore, so you can can edit `vars.py` and `git pull` without any conflicts). It comes pre-filled with sensible default values.
 
 We are using basic HTTP authentication for the endpoints so that people can't just randomly fuck with your lights and music. It's obviously not perfect but does a good-enough job for this purpose (IMO).
 
@@ -73,10 +73,10 @@ Imagine... when you arrive home the lights are on at a nice level and soft music
 I've also created a "stop" endpoint that brings everything to an end. It does the following:
 
 * Clears the Sonos queue
-* Sets the volume to a sensible level (45%)
+* Sets the volume to a sensible level, `STOP_VOLUME`
 * Sets the play mode to 'normal' (no shuffle or repeat)
 * Stops all playback
-* Sets the lights to 80% over 3 seconds (nobody likes a jarring transition)
+* Sets the lights to `STOP_DIMMER_BRIGHTNESS` over `STOP_DIMMER_SECONDS` seconds (nobody likes a jarring transition)
 
 I've set this up as an icon (Chrome bookmark widget) on my phone.
 

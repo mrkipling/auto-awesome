@@ -188,16 +188,16 @@ def bttn_stop():
 
     queue = sonos.get_queue()
     sonos.clear_queue()
-    sonos.volume = 45
+    sonos.volume = STOP_VOLUME
     sonos.play_mode = 'NORMAL'
     sonos.stop()
 
-    # set the lights back to approximately 80% over 3 seconds
+    # set the lights back to a sensible default
 
     command = {
-        'transitiontime': 30,
+        'transitiontime': (STOP_DIMMER_SECONDS * 10),
         'on': True,
-        'bri': 203
+        'bri': STOP_DIMMER_BRIGHTNESS
     }
 
     hue.set_light(1, command)
