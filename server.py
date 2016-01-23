@@ -155,9 +155,7 @@ def arriving_home():
     sonos.volume = ARRIVING_HOME_VOLUME
 
     # play Arriving Home playlist
-
     playlist = get_sonos_playlist(sonos, ARRIVING_HOME_PLAYLIST_NAME)
-    print playlist
 
     if playlist:
         sonos.add_to_queue(playlist)
