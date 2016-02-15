@@ -44,7 +44,7 @@ Okay, now onto the endpoints.
 
 ## Sexy Time
 
-When activated the Sexy Time endpoint plays a playlist on your Sonos system (the name is defined in `SEXY_TIME_PLAYLIST_NAME`, default: `Sexy Time`). It works best with the bttn because it's just cooler. When activated it plays the playlist on your Sonos system and dims the lights to `SEXY_TIME_DIMMER_BRIGHTNESS` (default: `125`, about 20%) over `SEXY_TIME_DIMMER_SECONDS` (default: `10` seonds).
+When activated the Sexy Time endpoint plays a playlist on your Sonos system (the name is defined in `SEXY_TIME_PLAYLIST_NAME`, default: `Sexy Time`). It works best with the bttn because it's just cooler. When activated it plays the playlist on your Sonos system and dims the lights to `SEXY_TIME_DIMMER_BRIGHTNESS` (default: `125`, about 20%) over `SEXY_TIME_DIMMER_SECONDS` (default: `10` seonds). The lights affected are `SEXY_TIME_LIGHTS` (default: `1`, i.e. the first light; it can also be an array, e.g. `[1, 2]`). See "Notes" section for more information.
 
 It also skips tracks when activated again. However we need to know the name of the first track in the playlist in order to do this as we just add the playlist to the queue and I don't think that you can get the playlist name from this. This is `SEXY_TIME_FIRST_TRACK` (default: `01 - Lets Get It On.mp3`, obviously).
 
@@ -64,7 +64,7 @@ This requires Tasker on Android. You need to set it up so that:
 
 It sends a GET request to to this endpoint (with HTTP auth; I find it easier to include in the URL, like `http://username:password@server/automation/arriving-home/`).
 
-It turns the lights on to `ARRIVING_HOME_DIMMER_BRIGHTNESS` over `ARRIVING_HOME_DIMMER_SECONDS` and plays `ARRIVING_HOME_PLAYLIST_NAME` (default: `Arriving Home`) at `ARRIVING_HOME_VOLUME` volume to provide a nice "arriving home" experience. I suggest filling the contents of `ARRIVING_HOME_PLAYLIST_NAME` with chilled music. Again, it plays in shuffle mode and skips the first track; it's nice to have a different track every day when you arrive home. Then it just keeps playing until you turn it off.
+It sets the lights (`ARRIVING_TIME_LIGHTS`, see "Notes" section for more information) to `ARRIVING_HOME_DIMMER_BRIGHTNESS` over `ARRIVING_HOME_DIMMER_SECONDS` and plays `ARRIVING_HOME_PLAYLIST_NAME` (default: `Arriving Home`) at `ARRIVING_HOME_VOLUME` volume to provide a nice "arriving home" experience. I suggest filling the contents of `ARRIVING_HOME_PLAYLIST_NAME` with chilled music. Again, it plays in shuffle mode and skips the first track; it's nice to have a different track every day when you arrive home. Then it just keeps playing until you turn it off.
 
 Imagine... when you arrive home the lights are on at a nice level and soft music is playing. I have this set up already and can confirm that it is almost magical :)
 
@@ -76,13 +76,14 @@ I've also created a "stop" endpoint that brings everything to an end. It does th
 * Sets the volume to a sensible level, `STOP_VOLUME`
 * Sets the play mode to 'normal' (no shuffle or repeat)
 * Stops all playback
-* Sets the lights to `STOP_DIMMER_BRIGHTNESS` over `STOP_DIMMER_SECONDS` seconds (nobody likes a jarring transition)
+* Sets the lights (`STOP_LIGHTS`, see "Notes" section for more information) to `STOP_DIMMER_BRIGHTNESS` over `STOP_DIMMER_SECONDS` seconds (nobody likes a jarring transition)
 
 I've set this up as an icon (Chrome bookmark widget) on my phone.
 
 ## Notes
 
 * The endpoints all return JSON, `{'status': 'success'}`.
+* A note on lights: you can provide a light number `1`, an array `[1, 2]`, a name `'Living Room'`, an array of names `['Living Room', 'Bedroom']`... the [phue documentation](https://github.com/studioimaginaire/phue) provides more comprehensive examples.
 * In order to make this work you need to initiate a venv (Google it).
 * When in your activated venv you need to run `pip install -r requirements.txt` in order to install all of the libraries that this project uses.
 * If you want to test this out without setting up a proper web server you can just run `python server.py`. It runs on port 9000 by default.
