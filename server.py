@@ -83,7 +83,7 @@ def sexy_time():
             'bri': SEXY_TIME_DIMMER_BRIGHTNESS
         }
 
-        hue.set_light(1, command)
+        hue.set_light(SEXY_TIME_LIGHTS, command)
 
     return jsonify(status="success")
 
@@ -143,7 +143,7 @@ def arriving_home():
         'bri': ARRIVING_HOME_DIMMER_BRIGHTNESS
     }
 
-    hue.set_light(1, command)
+    hue.set_light(ARRIVING_HOME_LIGHTS, command)
 
     # connect to the Sonos
     sonos = SoCo(SONOS_IP)
@@ -198,7 +198,7 @@ def bttn_stop():
         'bri': STOP_DIMMER_BRIGHTNESS
     }
 
-    hue.set_light(1, command)
+    hue.set_light(STOP_LIGHTS, command)
 
     return jsonify(status="success")
 
